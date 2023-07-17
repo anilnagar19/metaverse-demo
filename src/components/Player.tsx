@@ -50,7 +50,7 @@ const Player = ()=>{
 	})
 
 	const currentAction = useRef('');
-    const controlRef = useRef<typeof OrbitControls>();
+    const controlRef:any = useRef<typeof OrbitControls>();
     const camera = useThree((state)=>state.camera)
 
     const updateCameraTarget = (moveX:number,moveZ:number)=>{
