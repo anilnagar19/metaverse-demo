@@ -6,12 +6,12 @@ import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
 let walkDirection = new THREE.Vector3()
+let cameraTarget = new THREE.Vector3()
 let rotateAngle = new THREE.Vector3(0,1,0)
 let rotateQuaternion  = new THREE.Quaternion()
-let cameraTarget = new THREE.Vector3()
 
 
-const directionOffset = ({forward,backward,left,right})=>{
+const directionOffset = ({forward,backward,left,right}:{forward:any,backward:any,left:any,right:any})=>{
     var directionOffset = 0;
 
     if(forward){
@@ -91,9 +91,7 @@ const Player = ()=>{
                 camera.position.x - modal.scene.position.x,
                 camera.position.z-modal.scene.position.z
             )
-            let newDirectionOffset = directionOffset({
-                forward,backward,left,right
-            })
+            let newDirectionOffset = directionOffset({forward,backward,left,right})
     
             rotateQuaternion.setFromAxisAngle(
                 rotateAngle,
